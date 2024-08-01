@@ -25,7 +25,7 @@ const io = new Server(httpServer, {
         credentials: true,
     },
 });
-const __dirname = cwd()
+let __dirname = cwd()
 
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(express.json());
@@ -86,6 +86,7 @@ app.use('', authRoutes);
 app.use('', chatRoutes);
 app.use('', groupRoutes)
 
+__dirname = path.resolve()
 // const __dirname = path.resolve(); // To resolve the current directory
 app.use(express.static(path.join(__dirname, 'public', 'dist')));
 
